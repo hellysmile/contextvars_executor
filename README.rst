@@ -22,7 +22,7 @@ Installation
 Why???
 ------
 
-    `related Python issue <https://bugs.python.org/issue34014>_
+* `related Python issue <https://bugs.python.org/issue34014>`_
 
 Usage
 -----
