@@ -1,0 +1,31 @@
+dist: trusty
+language: python
+python:
+  - "3.7-dev"
+install:
+  - pip install -U setuptools
+  - pip install -U pip
+  - pip install -U wheel
+  - pip install -U tox
+script:
+  - export TOXENV=py`python -c 'import sys; print("".join(map(str, sys.version_info[:2])))'`
+  - echo "$TOXENV"
+
+  - tox
+after_success:
+  - pip install codecov
+  - codecov
+cache: pip
+notifications:
+  email: false
+
+deploy:
+  provider: pypi
+  user: hellysmile
+  password:
+    secure: "Ve9psTZ/U4oOtmA7/rAD515WyW48oNdMl94qpu7vycyX/+Zur0OmTtIo8o6seepV56KyxpneWdppD8PSaz5f/3xp2KDqzames9buVc2vwkMoXYGvLmI34ueR7VHzPSoW4zh/mltK4HinOsAKWWtSy6HCsbiEXbSgQbtYelHz7RJJFUOZmFZUotKjSM1uGOxpWddZy7le7VfLx3+4RQtSv/AeGvUTjHmmwfiTOxRcrWL6kMyYzzmaFsXITtT6yf/Sz++QxK9KBp3fuJ3+fud0PsO3AiOYam6+ZgVQdOnjVjxxOHlVeJ9hEkik9foz4je5uhO9nZ9NW28Sqi8wdTFdJYHlzagzYLu+GLtr97bqiPsH1HCxeq+YsWYU3TdoczYZX8TRqP3zN7Uq9/NM7pl2NFh01zeHHa5VGKZtxma/Ygljc6YUPUWFC4YClR65G2NM+ORICJozLcxjl5qE6qXW4Scqfs7XQBuuKGef2WK/XgTf9VpHVCyv0LkM5PRUgRXJBGMyb8ZEvVHBy7afQ/u6wEvALG930PO4s1qXESexrzzEcVn6DKm5newtwAXIZLLOBJBR0shSeVvI1U6gAPnJWRQafp3kyonGAEg42I+6Z2HUH+uQFg2wWpfCN4AvlpXdm+yf0rcnwLx4QFLu3ybWT5aJ9hy2C4PXDFcY55vVk/E="
+  distributions: "sdist"
+  on:
+    tags: true
+    all_branches: true
+    python: "3.7-dev"
