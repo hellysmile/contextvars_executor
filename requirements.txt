@@ -6,4 +6,4 @@ Pygments==2.2.0
 pytest-asyncio==0.9.0
 pytest-cov==2.6.0
 pytest-mypy==0.3.2
-pytest==3.8.2
+pytest==3.9.1
