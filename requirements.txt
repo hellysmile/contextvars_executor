@@ -5,5 +5,5 @@ mypy==0.650
 Pygments==2.3.0
 pytest-asyncio==0.9.0
 pytest-cov==2.6.0
-pytest-mypy==0.3.2
+pytest-mypy==0.9.1
 pytest==4.0.1
